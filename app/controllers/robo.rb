@@ -32,7 +32,7 @@ class Robo
     end
   end
 
-  def place_robot(x,y,direction)
+  def place_robot()
     if (is_valid_coordinates(x,y) and is_valid_direction(direction))
       @x = x
       @y = y
@@ -42,8 +42,8 @@ class Robo
     end
   end
 
-  def move_robot(x,y,direction)
-    case direction
+  def move_robot()
+    case @direction
     when "north"
       to_move_x = 0
       to_move_y = 1
@@ -58,7 +58,7 @@ class Robo
       to_move_y = 0
     end
 
-    if (is_valid_coordinates(x + to_move_x , y + to_move_y))
+    if (is_valid_coordinates(@x + to_move_x , @y + to_move_y))
       @x = x + to_move_x
       @y = y + to_move_y
     else
@@ -90,14 +90,22 @@ class Robo
 
   def execute_command(x,y,direction,command)
     @command = command
+    @direction = direction
+
     case @command.downcase
     when "place"
-      place_robot(x, y,direction)
+      place_robot(x,y,direction)
     when "move"
-      move_robot(x,y,direction)
+      @x = x
+      @y = y
+      move_robot()
     when "left"
+      @x = x
+      @y = y
       rotate_left()
     when "right"
+      @x = x
+      @y = y
       rotate_right()
     else
       raise ArgumentError, 'Invalid command'

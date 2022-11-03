@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Setup of the Application.
 
-Things you may want to cover:
+- Ruby version -> ruby 3.1.2
 
-* Ruby version
+- Rails version -> rails 7.0.4
 
-* System dependencies
+- System dependencies
 
-* Configuration
+- Configuration -> bundle install
 
-* Database creation
+- Database -> sqlite3
 
-* Database initialization
+- Database initialization -> rails db: migrate
 
-* How to run the test suite
+- Services (job queues, cache servers, search engines, etc.)
 
-* Services (job queues, cache servers, search engines, etc.)
+- Deployment instructions -> rails s / rails server
 
-* Deployment instructions
-
-* ...
+- Api documentation -> https://documenter.getpostman.com/view/19704482/2s8YY9vS2F
